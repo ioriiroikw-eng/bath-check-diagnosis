@@ -3,8 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="google-site-verification" content="ZpCTa8erk3Gnomvg29N-tU4MTtk3vBm3GD2IVei9R8U" />
-    
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5DPBJRNH');</script>
     <title>今日の清潔度診断｜フロハイッタ？ - お風呂キャンセル界隈の生存率チェック</title>
     <meta name="description" content="【無料診断】あなたの今の清潔度(HP)は？「お風呂めんどくさい」「髪乾かすの無理」...そんな限界社会人のための生存率チェック。サボンちゃんがゾンビ化する前に診断しよう。">
     <meta name="keywords" content="お風呂,めんどくさい,診断,清潔度,お風呂キャンセル界隈,フロハイッタ,サボンちゃん,入浴管理,アプリ">
@@ -30,22 +34,17 @@
     <style>
         body { font-family: 'Zen Maru Gothic', sans-serif; background-color: #fff0f5; color: #333; }
         .font-pop { font-family: 'Mochiy Pop One', sans-serif; }
-        
-        /* アニメーション定義 */
         .fade-in { animation: fadeIn 0.5s ease-out forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
         .progress-bar { transition: width 0.3s ease-out; }
         .option-btn:active { transform: scale(0.98); }
-
-        /* 質問文の文字サイズ調整（スマホで1行に収めるため） */
-        @media (max-width: 380px) {
-            #q-text { font-size: 1.1rem; }
-        }
+        @media (max-width: 380px) { #q-text { font-size: 1.1rem; } }
     </style>
 </head>
 <body class="antialiased min-h-screen flex flex-col bg-gradient-to-br from-pink-50 to-blue-50">
 
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DPBJRNH"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <header class="w-full py-4 px-6 flex justify-between items-center bg-white/90 backdrop-blur sticky top-0 z-50 shadow-sm h-16">
         <a href="https://bath-check.com/" class="text-xl font-black font-pop text-pink-500 hover:opacity-80 transition">フロハイッタ？</a>
         <span class="text-xs font-bold text-gray-500">清潔度診断</span>
@@ -66,7 +65,7 @@
                         <img src="./char_80.png" alt="サボンちゃん" class="relative w-32 h-32 object-contain drop-shadow-md">
                         <span class="absolute -top-2 -right-3 text-5xl font-black text-pink-500 font-pop animate-bounce drop-shadow-sm">?</span>
                     </div>
-                    </div>
+                </div>
                 
                 <h1 class="text-2xl md:text-3xl font-black text-gray-800 mb-4 leading-tight">
                     今日のあなたの<br><span class="text-pink-500">生存率（清潔度）</span>は？
@@ -138,49 +137,48 @@
     </footer>
 
     <script>
-        // ▼ 変更点：スマホで1行に収まるよう質問文を極限まで短縮 ▼
         const questions = [
-            { text: "最後の入浴はいつ？", options: [ // 短縮
+            { text: "最後の入浴はいつ？", options: [
                 { text: "24時間以内（余裕）", score: 0 },
                 { text: "昨日の記憶...だった気がする", score: -20 },
                 { text: "数えてはいけない（3日目以上）", score: -40 }
             ]},
-            { text: "今の「前髪」の状態は？", options: [ // 短縮
+            { text: "今の「前髪」の状態は？", options: [
                 { text: "サラサラで風になびく", score: 0 },
                 { text: "ワックス無しで「束感」がある", score: -5 },
                 { text: "額に張り付いて固定されている", score: -10 }
             ]},
-            { text: "今着てる服、いつから？", options: [ // 短縮
+            { text: "今着てる服、いつから？", options: [
                 { text: "今朝着替えた、洗いたて", score: 0 },
                 { text: "コンビニに行けるギリギリの部屋着", score: -5 },
                 { text: "いつから着てるか不明な「皮膚」", score: -10 }
             ]},
-            { text: "今日の「汗」の量は？", options: [ // 短縮
+            { text: "今日の「汗」の量は？", options: [
                 { text: "呼吸しかしていない", score: 0 },
                 { text: "移動などで、じっとり汗ばんだ", score: -5 },
                 { text: "運動した / 冷や汗を大量にかいた", score: -10 }
             ]},
-            { text: "自分の「匂い」どう思う？", options: [ // 短縮
+            { text: "自分の「匂い」どう思う？", options: [
                 { text: "シャンプーや柔軟剤の香り", score: 0 },
                 { text: "無臭。あるいは「人間」の匂い", score: -5 },
                 { text: "正直、服をパタパタするとヤバイ", score: -10 }
             ]},
-            { text: "「ドライヤー」への感情は？", options: [ // 短縮
+            { text: "「ドライヤー」への感情は？", options: [
                 { text: "乾かすのは当たり前の習慣", score: 0 },
                 { text: "世界で一番面倒な家電", score: -5 },
                 { text: "腕が疲れるので自然乾燥（放置）", score: -10 }
             ]},
-            { text: "スマホ画面に顔を近づけると...", options: [ // 短縮
+            { text: "スマホ画面に顔を近づけると...", options: [
                 { text: "何もつかない", score: 0 },
                 { text: "少し脂がつく", score: -5 },
                 { text: "通話後、画面がベトベトになる", score: -10 }
             ]},
-            { text: "急に「今から会える？」", options: [ // 短縮
+            { text: "急に「今から会える？」", options: [
                 { text: "「いいよ！」と即答できる", score: 0 },
                 { text: "「ちょっと待って」と30分稼ぐ", score: -5 },
                 { text: "居留守を使う。絶対に会えない", score: -10 }
             ]},
-            { text: "風呂に入らない最大の理由は？", options: [ // 短縮
+            { text: "風呂に入らない最大の理由は？", options: [
                 { text: "入らない理由はない（これから入る）", score: 0 },
                 { text: "髪を乾かすのがめんどくさい", score: -5 },
                 { text: "HPが残っていない（気絶寸前）", score: -10 }
@@ -191,23 +189,19 @@
                 { text: "布団と融合したい", score: -10 }
             ]}
         ];
-        // ▲ 変更点ここまで ▲
 
         let currentIdx = 0;
         let totalScore = 100;
 
-        // DOM Elements
         const startScreen = document.getElementById('start-screen');
         const qScreen = document.getElementById('question-screen');
         const rScreen = document.getElementById('result-screen');
         const progressContainer = document.getElementById('progress-container');
-        
         const qText = document.getElementById('q-text');
         const qNumber = document.getElementById('q-number');
         const optionsCont = document.getElementById('options-container');
         const progressBar = document.getElementById('progress');
 
-        // 診断開始処理
         function startDiagnosis() {
             startScreen.classList.add('hidden');
             qScreen.classList.remove('hidden');
@@ -220,7 +214,6 @@
             const q = questions[currentIdx];
             qText.innerText = q.text;
             qNumber.innerText = `Q${currentIdx + 1} / ${questions.length}`;
-            
             const progress = ((currentIdx) / questions.length) * 100;
             progressBar.style.width = `${progress}%`;
 
