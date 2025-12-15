@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://diagnosis.bath-check.com/sitemap.xml
