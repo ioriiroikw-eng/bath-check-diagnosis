@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="お風呂キャンセルタイプ診断とは？診断の仕組みと開発背景を紹介します。">
+    <meta property="og:title" content="この診断について｜お風呂キャンセルタイプ診断">
+    <title>この診断について｜お風呂キャンセルタイプ診断</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap"
+        rel="stylesheet">
+    <link rel="icon" href="https://diagnosis.bath-check.com/icon.png" type="image/png">
+
+    <style>
+        body {
+            font-family: 'Zen Maru Gothic', sans-serif;
+            background: linear-gradient(135deg, #fdf2f8 0%, #ede9fe 50%, #dbeafe 100%);
+            min-height: 100vh;
+        }
+
+        .font-pop {
+            font-family: 'Mochiy Pop One', sans-serif;
+        }
+
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+</head>
+
+<body class="text-gray-800 pb-safe">
+
+    <header
+        class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 flex justify-between items-center px-4 py-3 shadow-sm h-16">
+        <h1
+            class="text-lg font-black font-pop text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
+            <a href="index.html">フロハイッタ？</a>
+        </h1>
+        <a href="index.html"
+            class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md">
+            診断する
+        </a>
+    </header>
+
+    <main class="pt-20 px-4 pb-8 max-w-2xl mx-auto">
+        <h2
+            class="text-2xl font-black font-pop text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
+            この診断について
+        </h2>
+
+        <div class="space-y-6">
+
+            <!-- 診断の概要 -->
+            <section class="bg-white rounded-2xl p-5 shadow-lg">
+                <h3 class="font-black text-lg text-purple-500 font-pop mb-3 flex items-center gap-2">
+                    <span>🛁</span> 診断の概要
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    「お風呂キャンセルタイプ診断」は、あなたがお風呂に入らない（入れない）本当の理由を8つのタイプに分類する診断です。
+                </p>
+                <p class="text-sm text-gray-600 leading-relaxed mt-2">
+                    6つの質問に答えるだけで、あなたの「お風呂キャンセル成分」がわかります。診断結果はSNSでシェアして、友達と比較しても楽しめます。
+                </p>
+            </section>
+
+            <!-- 8タイプ -->
+            <section class="bg-white rounded-2xl p-5 shadow-lg">
+                <h3 class="font-black text-lg text-purple-500 font-pop mb-3 flex items-center gap-2">
+                    <span>🧬</span> 8タイプについて
+                </h3>
+                <div class="grid grid-cols-2 gap-2 text-sm">
+                    <div class="bg-pink-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">📱</span>
+                        <p class="font-bold text-pink-600">スマホ廃人型</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">🎤</span>
+                        <p class="font-bold text-purple-600">推し優先型</p>
+                    </div>
+                    <div class="bg-orange-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">🛏️</span>
+                        <p class="font-bold text-orange-600">布団依存型</p>
+                    </div>
+                    <div class="bg-yellow-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">⏰</span>
+                        <p class="font-bold text-yellow-600">明日やる型</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">😴</span>
+                        <p class="font-bold text-gray-600">省エネ型</p>
+                    </div>
+                    <div class="bg-teal-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">🧴</span>
+                        <p class="font-bold text-teal-600">完璧主義型</p>
+                    </div>
+                    <div class="bg-green-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">🎮</span>
+                        <p class="font-bold text-green-600">ゲーマー型</p>
+                    </div>
+                    <div class="bg-blue-50 rounded-lg p-2 text-center">
+                        <span class="text-xl">❄️</span>
+                        <p class="font-bold text-blue-600">季節限定型</p>
+                    </div>
+                </div>
+                <p class="text-center mt-3">
+                    <a href="types.html" class="text-sm text-purple-500 underline font-bold">→ 各タイプの詳細を見る</a>
+                </p>
+            </section>
+
+            <!-- 診断の仕組み -->
+            <section class="bg-white rounded-2xl p-5 shadow-lg">
+                <h3 class="font-black text-lg text-purple-500 font-pop mb-3 flex items-center gap-2">
+                    <span>⚙️</span> 診断の仕組み
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    各質問の回答に応じて、8タイプへのポイントが加算されます。最終的なポイントの割合から「成分」を算出し、上位3タイプを表示します。
+                </p>
+                <div class="bg-gray-50 rounded-lg p-3 mt-3 text-sm">
+                    <p class="font-bold text-gray-700 mb-1">成分表示の例</p>
+                    <p class="text-gray-600">📱 スマホ廃人 45%</p>
+                    <p class="text-gray-600">🛏️ 布団依存 30%</p>
+                    <p class="text-gray-600">⏰ 明日やる 25%</p>
+                </div>
+            </section>
+
+            <!-- フロハイッタ？アプリ -->
+            <section
+                class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-5 shadow-lg border-2 border-purple-100">
+                <h3 class="font-black text-lg text-purple-500 font-pop mb-3 flex items-center gap-2">
+                    <span>📱</span> フロハイッタ？アプリ
+                </h3>
+                <p class="text-sm text-gray-600 leading-relaxed">
+                    この診断は「フロハイッタ？」アプリの一部です。アプリでは毎日の入浴状況を記録したり、同じタイプの仲間とつながったりできます。
+                </p>
+                <a href="https://app.bath-check.com/"
+                    class="mt-4 block w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full shadow-lg text-center">
+                    アプリを開く
+                </a>
+            </section>
+
+            <!-- 注意事項 -->
+            <section class="bg-white rounded-2xl p-5 shadow-lg">
+                <h3 class="font-black text-lg text-gray-500 font-pop mb-3 flex items-center gap-2">
+                    <span>📝</span> 注意事項
+                </h3>
+                <ul class="text-sm text-gray-600 leading-relaxed space-y-2">
+                    <li>• この診断はエンターテイメント目的で作成されています</li>
+                    <li>• 診断結果は参考程度にお楽しみください</li>
+                    <li>• お風呂には適度に入りましょう（医学的には毎日入浴をおすすめします）</li>
+                </ul>
+            </section>
+
+        </div>
+
+        <div class="mt-8 text-center">
+            <a href="index.html"
+                class="inline-block py-3 px-8 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full shadow-lg">
+                🛁 診断してみる
+            </a>
+        </div>
+
+        <div class="mt-6 text-center">
+            <a href="types.html" class="text-sm text-gray-500 underline">タイプ一覧を見る</a>
+        </div>
+    </main>
+
+</body>
+
+</html>

@@ -1,156 +1,231 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="お風呂に入るのが面倒くさい...そんなあなたの「限界度」を測定します。 #フロハイッタ診断">
-    <meta property="og:title" content="お風呂キャンセル界隈診断｜フロハイッタ？">
-    <meta property="og:description" content="今日のあなたの清潔度は？限界を迎える前にチェックしよう。">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="description" content="あなたがお風呂に入らない理由は？8タイプから診断！ #お風呂キャンセルタイプ診断">
+    <meta property="og:title" content="お風呂キャンセルタイプ診断｜フロハイッタ？">
+    <meta property="og:description" content="あなたがお風呂に入らない本当の理由を診断します。">
     <meta property="og:image" content="https://diagnosis.bath-check.com/icon.png">
     <meta name="twitter:card" content="summary">
-    <title>お風呂キャンセル界隈診断｜フロハイッタ？</title>
-    
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5DPBJRNH');</script>
+    <title>お風呂キャンセルタイプ診断｜フロハイッタ？</title>
+
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5DPBJRNH');</script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family=Zen+Maru+Gothic:wght@500;700;900&display=swap"
+        rel="stylesheet">
     <link rel="icon" href="https://diagnosis.bath-check.com/icon.png" type="image/png">
     <link rel="apple-touch-icon" href="https://diagnosis.bath-check.com/icon.png">
-    
-    <!-- 構造化データ：Googleにサイト名を正しく認識させる -->
+
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
         "name": "フロハイッタ？",
-        "alternateName": ["お風呂キャンセル界隈診断", "フロハイッタ診断"],
+        "alternateName": ["お風呂キャンセルタイプ診断"],
         "url": "https://diagnosis.bath-check.com/"
     }
     </script>
-    
+
     <style>
         body {
             font-family: 'Zen Maru Gothic', sans-serif;
-            background-color: #fdf2f8; /* bg-pink-50 */
-            background-image: radial-gradient(#fbcfe8 20%, transparent 20%), radial-gradient(#fbcfe8 20%, transparent 20%);
-            background-position: 0 0, 10px 10px;
-            background-size: 20px 20px;
+            background: linear-gradient(135deg, #fdf2f8 0%, #ede9fe 50%, #dbeafe 100%);
+            min-height: 100vh;
             -webkit-tap-highlight-color: transparent;
         }
-        .font-pop { font-family: 'Mochiy Pop One', sans-serif; }
-        .fade-in { animation: fadeIn 0.5s ease-out; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+
+        .font-pop {
+            font-family: 'Mochiy Pop One', sans-serif;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+
+        .progress-bar {
+            transition: width 0.5s ease-out;
+        }
+
+        .option-btn {
+            transition: all 0.2s ease;
+        }
+
+        .option-btn:active {
+            transform: scale(0.97);
+        }
+
+        .component-bar {
+            transition: width 1s ease-out;
+        }
     </style>
 </head>
-<body class="text-gray-800 min-h-screen flex flex-col items-center p-4 pb-safe pt-24">
-    
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DPBJRNH"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 flex justify-between items-center px-4 py-3 shadow-sm h-16">
-        <h1 class="text-xl md:text-2xl font-black font-pop text-pink-500 tracking-tight">
+
+<body class="text-gray-800 flex flex-col items-center p-4 pb-safe pt-20">
+
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DPBJRNH" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+
+    <header
+        class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 flex justify-between items-center px-4 py-3 shadow-sm h-16">
+        <h1
+            class="text-lg md:text-xl font-black font-pop text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 tracking-tight">
             <a href="index.html">フロハイッタ？</a>
         </h1>
-        <a href="https://app.bath-check.com/" class="bg-pink-500 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md hover:bg-pink-600 transition transform hover:-translate-y-0.5">
+        <a href="https://app.bath-check.com/"
+            class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition">
             アプリを開く
         </a>
     </header>
 
-    <div id="app" class="bg-white/90 backdrop-blur-md rounded-3xl shadow-2xl w-full max-w-md overflow-hidden border-4 border-white relative flex flex-col mb-8">
-        
-        <div id="top-screen" class="p-8 text-center flex-col items-center justify-center fade-in flex py-12">
-            <div class="mb-6 relative">
-                <div class="absolute inset-0 bg-pink-200 rounded-full blur-xl opacity-50 animate-pulse"></div>
-                <img src="./char_50.png" alt="トップキャラクター" class="w-40 h-40 object-contain relative z-10 drop-shadow-lg mx-auto">
+    <div id="app"
+        class="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl w-full max-w-md overflow-hidden border-4 border-white relative flex flex-col mb-8">
+
+        <!-- トップ画面 -->
+        <div id="top-screen" class="p-6 text-center flex-col items-center justify-center fade-in flex py-10">
+            <div class="mb-4">
+                <span class="text-6xl">🛁</span>
             </div>
-            <h2 class="text-2xl font-black font-pop mb-2 leading-tight">今日のあなたの<br><span class="text-pink-500 text-3xl">生存率（清潔度）</span>は？</h2>
-            <p class="text-sm font-medium text-gray-600 mb-8 leading-relaxed">
-                お風呂に入りたくない。<br>髪を乾かすのがめんどくさい。<br>そんな限界な今の状態を10問でチェック！
+            <h2 class="text-xl font-black font-pop mb-2 leading-tight">
+                お風呂キャンセル<br>
+                <span
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 text-2xl">タイプ診断</span>
+            </h2>
+            <p class="text-sm font-medium text-gray-600 mb-6 leading-relaxed">
+                あなたがお風呂に入らない<br>本当の理由を診断します
             </p>
-            <button onclick="startDiagnosis()" class="w-full py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition text-lg relative overflow-hidden group">
-                <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span class="relative">診断を始める</span>
+
+            <div class="flex flex-wrap justify-center gap-2 mb-6 text-xs">
+                <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded-full">📱 スマホ廃人型</span>
+                <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-full">🎤 推し優先型</span>
+                <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded-full">🛏️ 布団依存型</span>
+                <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full">⏰ 明日やる型</span>
+            </div>
+
+            <button onclick="startDiagnosis()"
+                class="w-full py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition text-lg relative overflow-hidden group">
+                <span
+                    class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
+                <span class="relative">診断する（6問）</span>
             </button>
-            <p class="text-xs text-gray-400 mt-4">※所要時間：約30秒</p>
+            <p class="text-xs text-gray-400 mt-3">※ 約30秒で完了</p>
+
+            <div class="flex justify-center gap-4 mt-4 text-xs">
+                <a href="types.html" class="text-purple-500 underline font-bold">タイプ一覧</a>
+                <a href="about.html" class="text-gray-500 underline">この診断について</a>
+            </div>
         </div>
 
-        <div id="question-screen" class="hidden p-6 flex-col fade-in py-10">
-            <div id="progress-container" class="mb-6 hidden">
+        <!-- 質問画面 -->
+        <div id="question-screen" class="hidden p-6 flex-col fade-in">
+            <div id="progress-container" class="mb-6">
                 <div class="flex justify-between text-xs font-bold text-gray-400 mb-1">
-                    <span>PROGRESS</span>
-                    <span id="progress-text">1/10</span>
+                    <span>QUESTION</span>
+                    <span id="progress-text">1/6</span>
                 </div>
-                <div class="h-3 bg-gray-100 rounded-full overflow-hidden">
-                    <div id="progress-bar" class="h-full bg-gradient-to-r from-pink-400 to-purple-400 transition-all duration-500 ease-out" style="width: 10%"></div>
+                <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
+                    <div id="progress-bar" class="progress-bar h-full bg-gradient-to-r from-pink-400 to-purple-400"
+                        style="width: 16.6%"></div>
                 </div>
             </div>
 
-            <div class="flex-grow flex flex-col justify-center">
-                <h2 id="question-text" class="text-xl font-black font-pop mb-8 text-center leading-snug min-h-[3em] flex items-center justify-center">
-                    </h2>
-                <div class="space-y-4 w-full">
-                    <button onclick="answer(0)" class="w-full py-4 bg-white border-4 border-pink-100 text-pink-500 font-black rounded-2xl hover:bg-pink-50 active:scale-95 transition shadow-sm text-lg">
-                        <span class="text-2xl mr-2">🙆‍♀️</span> はい
-                    </button>
-                    <button onclick="answer(5)" class="w-full py-4 bg-white border-4 border-gray-100 text-gray-600 font-bold rounded-2xl hover:bg-gray-50 active:scale-95 transition shadow-sm text-lg">
-                        <span class="text-2xl mr-2">🤔</span> どちらでもない
-                    </button>
-                    <button onclick="answer(10)" class="w-full py-4 bg-white border-4 border-blue-100 text-blue-500 font-black rounded-2xl hover:bg-blue-50 active:scale-95 transition shadow-sm text-lg">
-                        <span class="text-2xl mr-2">🙅‍♀️</span> いいえ
-                    </button>
-                </div>
+            <div class="flex-grow flex flex-col justify-center min-h-[350px]">
+                <h2 id="question-text" class="text-base font-black font-pop mb-6 text-center leading-relaxed"></h2>
+                <div id="options-container" class="space-y-3 w-full"></div>
             </div>
         </div>
 
-        <div id="result-screen" class="hidden p-6 text-center flex-col items-center justify-center fade-in overflow-y-auto pb-safe">
-            <div class="w-full max-w-sm mx-auto flex-grow flex flex-col justify-center">
-                
-                <p class="text-sm font-black text-pink-400 mt-6 mb-8 tracking-widest font-pop">✨ 診断結果 ✨</p>
-                
-                <div class="relative w-40 h-40 mx-auto mb-4">
-                    <div class="absolute inset-0 bg-gradient-to-tr from-pink-200 to-purple-200 rounded-full blur-2xl opacity-60 animate-pulse"></div>
-                    <img id="result-img" src="" alt="結果キャラクター" class="relative z-10 w-full h-full object-contain drop-shadow-xl transform hover:scale-110 transition duration-500">
-                    <div id="result-bubble" class="absolute -top-6 -right-8 bg-white border-2 border-gray-800 text-xs font-black px-3 py-2 rounded-xl shadow-lg transform rotate-12 z-20 whitespace-nowrap text-gray-800 font-pop">
-                        </div>
-                </div>
+        <!-- 結果画面 -->
+        <div id="result-screen" class="hidden p-6 text-center flex-col items-center fade-in overflow-y-auto pb-safe">
+            <div class="w-full max-w-sm mx-auto">
 
-                <h3 id="result-rank" class="text-2xl md:text-3xl font-black font-pop mb-1 leading-tight tracking-tighter">
+                <p class="text-xs font-black text-purple-400 mb-4 tracking-widest font-pop">🧪 診断結果</p>
+
+                <!-- メインタイプ -->
+                <div
+                    class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-5 mb-4 border-2 border-purple-100">
+                    <span id="result-emoji" class="text-5xl mb-2 block"></span>
+                    <p class="text-xs text-gray-500 mb-1">あなたは</p>
+                    <h3 id="result-type"
+                        class="text-xl font-black font-pop text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 mb-2">
                     </h3>
-                <p id="result-sub" class="text-xs font-bold text-gray-500 mb-6 bg-gray-100 inline-block px-3 py-1 rounded-full">
-                    </p>
-                
-                <div class="bg-white border-4 border-pink-100 rounded-2xl p-4 mb-6 shadow-sm text-left relative overflow-hidden">
-                    <div class="absolute -right-4 -top-4 text-6xl opacity-10 font-black select-none">📊</div>
-                    <div id="status-list" class="space-y-3 font-bold text-sm text-gray-600 relative z-10">
-                        </div>
+                    <p id="result-catch" class="text-sm text-gray-600 font-bold"></p>
                 </div>
 
-                <p id="result-desc" class="text-sm font-medium text-gray-600 mb-8 leading-relaxed text-left bg-white/50 p-4 rounded-xl">
-                    </p>
+                <!-- 成分表示 -->
+                <div class="bg-white rounded-2xl p-4 mb-4 border-2 border-gray-100 text-left">
+                    <p class="text-xs font-black text-gray-400 mb-3 tracking-wider">🧬 あなたの成分</p>
+                    <div id="component-list" class="space-y-3"></div>
+                </div>
 
-                <div class="w-full space-y-3 mt-auto mb-4">
-                    <a id="share-link" href="#" target="_blank" class="block w-full py-4 bg-black text-white font-black rounded-full shadow-lg hover:bg-gray-800 transition flex items-center justify-center gap-2 relative overflow-hidden group">
-                        <span class="absolute inset-0 bg-gray-700 transform -translate-x-full group-hover:translate-x-0 transition duration-300"></span>
-                        <span class="relative flex items-center gap-2">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-                            結果をポストして供養する
-                        </span>
-                    </a>
-                    
-                    <a href="https://app.bath-check.com/" class="block w-full py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition text-lg flex items-center justify-center gap-2 relative overflow-hidden group">
-                         <span class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                        <span class="relative flex items-center gap-2">
-                            <img src="./icon.png" alt="アプリロゴ" class="w-6 h-6 drop-shadow-sm">
-                            アプリでHP管理する
-                        </span>
+                <!-- 相性 -->
+                <div class="bg-white rounded-2xl p-4 mb-4 border-2 border-gray-100 text-left">
+                    <div class="flex justify-between items-center text-sm">
+                        <div>
+                            <span class="text-gray-400">💕 相性◎</span>
+                            <span id="compatible-type" class="font-bold text-pink-500 ml-1"></span>
+                        </div>
+                        <div>
+                            <span class="text-gray-400">⚔️ 天敵</span>
+                            <span id="enemy-type" class="font-bold text-gray-600 ml-1"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 言い訳 -->
+                <div
+                    class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-4 mb-5 border-2 border-yellow-200">
+                    <p class="text-xs font-black text-yellow-600 mb-2 tracking-wider">📜 今日の言い訳</p>
+                    <p id="excuse-text" class="text-sm font-bold text-gray-700 leading-relaxed"></p>
+                </div>
+
+                <!-- ボタン -->
+                <div class="space-y-3">
+                    <a id="share-link" href="#" target="_blank"
+                        class="block w-full py-3 bg-black text-white font-bold rounded-full shadow-lg hover:bg-gray-800 transition flex items-center justify-center gap-2">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                            <path
+                                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z">
+                            </path>
+                        </svg>
+                        結果をシェア
                     </a>
 
-                    <button onclick="location.reload()" class="text-xs text-gray-500 underline mt-4 hover:text-gray-700 p-2">
-                        現実逃避して最初からやり直す
+                    <button onclick="location.reload()"
+                        class="w-full py-3 bg-gray-100 text-gray-600 font-bold rounded-full hover:bg-gray-200 transition">
+                        🔄 もう一度診断
                     </button>
+
+                    <a href="https://app.bath-check.com/"
+                        class="block w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2">
+                        📱 アプリで毎日チェック
+                    </a>
                 </div>
             </div>
         </div>
@@ -158,45 +233,184 @@
     </div>
 
     <script>
+        // 8タイプの定義
+        const types = {
+            A: {
+                id: 'A', emoji: '📱', name: 'スマホ廃人型',
+                catch: '「気づいたら2時間経ってた」',
+                compatible: 'C', enemy: '朝シャワー勢',
+                excuses: [
+                    'スマホの充電が先。人間の充電は後でいい',
+                    'TikTok見てたら時間が溶けた。仕方ない',
+                    'YouTubeの自動再生が悪い。私は悪くない'
+                ]
+            },
+            B: {
+                id: 'B', emoji: '🎤', name: '推し優先型',
+                catch: '「推しのためなら何日でも」',
+                compatible: 'A', enemy: '現実主義者',
+                excuses: [
+                    '推しの配信中に風呂は入れない。常識',
+                    '推しに会う日じゃないから大丈夫',
+                    '推しも今頃お風呂入ってないかもしれない'
+                ]
+            },
+            C: {
+                id: 'C', emoji: '🛏️', name: '布団依存型',
+                catch: '「あと5分」のプロ',
+                compatible: 'A', enemy: '早起き勢',
+                excuses: [
+                    '布団から出た瞬間に体力が尽きた',
+                    '布団と約束したから。破れない',
+                    '寒すぎて布団から出たら死ぬ'
+                ]
+            },
+            D: {
+                id: 'D', emoji: '⏰', name: '明日やる型',
+                catch: '「明日の自分、よろしく」',
+                compatible: 'E', enemy: '計画的な人',
+                excuses: [
+                    '明日の朝入れば朝イチで清潔になれる',
+                    '明日の自分は今日より優秀なはず',
+                    '明日2回入ればチャラ'
+                ]
+            },
+            E: {
+                id: 'E', emoji: '😴', name: '省エネ型',
+                catch: '「最小限の労力で生きたい」',
+                compatible: 'D', enemy: '意識高い系',
+                excuses: [
+                    '動くのがそもそも無理',
+                    '省エネは地球にやさしい',
+                    '疲れすぎて浴室で寝落ちしそう'
+                ]
+            },
+            F: {
+                id: 'F', emoji: '🧴', name: '完璧主義型',
+                catch: '「中途半端が嫌い」',
+                compatible: 'G', enemy: '適当な人',
+                excuses: [
+                    '入るなら2時間コース。その気力がない',
+                    'スキンケアまでやる元気がない',
+                    '完璧にできないなら明日にする'
+                ]
+            },
+            G: {
+                id: 'G', emoji: '🎮', name: 'ゲーマー型',
+                catch: '「あと1ステージだけ」',
+                compatible: 'F', enemy: 'ゲームしない人',
+                excuses: [
+                    'キリがいいところが永遠に来ない',
+                    'マッチング待ちで抜けられない',
+                    'セーブポイントまであと少し（嘘）'
+                ]
+            },
+            H: {
+                id: 'H', emoji: '❄️', name: '季節限定型',
+                catch: '「寒いと全てが無理」',
+                compatible: 'C', enemy: '寒さに強い人',
+                excuses: [
+                    '冬は週3でいいって誰かが言ってた',
+                    '寒すぎて脱ぐのが無理',
+                    '春になったら本気出す'
+                ]
+            }
+        };
+
+        // 質問データ
         const questions = [
-            "Q1. 今、前髪が少しベタついている気がする。",
-            "Q2. 「お風呂入らなきゃ」と思ってから1時間以上経過した。",
-            "Q3. 正直、昨日もお風呂に入っていない。",
-            "Q4. 髪を乾かす時間があるなら寝たい。",
-            "Q5. 外出の予定がない日は、顔も洗わないことがある。",
-            "Q6. 自分の頭皮の匂いを嗅いで「まだいける」と判断したことがある。",
-            "Q7. お風呂場までの距離が果てしなく遠く感じる。",
-            "Q8. 湯船に浸かるよりも、スマホを見ていたい。",
-            "Q9. 「明日早起きして入ればいいや」は、やらないフラグだ。",
-            "Q10. 今、誰にも会えない姿をしている。"
+            {
+                q: "お風呂に入ろうと思った瞬間、スマホに通知が来た。どうする？",
+                options: [
+                    { text: "📱 とりあえず見る。風呂は後で", points: { A: 3 } },
+                    { text: "🔕 無視して風呂へ", points: {} },
+                    { text: "🤔 内容による", points: { A: 1 } }
+                ]
+            },
+            {
+                q: "「明日早起きして入ればいいや」と思う頻度は？",
+                options: [
+                    { text: "⏰ ほぼ毎日思ってる", points: { D: 3 } },
+                    { text: "🤔 週に2-3回", points: { D: 2 } },
+                    { text: "🚿 あまり思わない", points: {} }
+                ]
+            },
+            {
+                q: "一番風呂をサボりがちな理由は？",
+                options: [
+                    { text: "📱 スマホ/SNS/動画", points: { A: 2 } },
+                    { text: "🎤 推し活（配信/ライブなど）", points: { B: 3 } },
+                    { text: "🛏️ 布団が気持ちよすぎる", points: { C: 3 } },
+                    { text: "😴 単純にめんどくさい", points: { E: 3 } },
+                    { text: "🎮 ゲームがやめられない", points: { G: 3 } }
+                ]
+            },
+            {
+                q: "お風呂に入るとき、どんな感じ？",
+                options: [
+                    { text: "🧴 入るなら長風呂派（30分以上）", points: { F: 3 } },
+                    { text: "⚡ サッと済ませたい（10分以内）", points: { E: 1 } },
+                    { text: "🤷 その日による", points: {} }
+                ]
+            },
+            {
+                q: "冬になると風呂のハードルは...",
+                options: [
+                    { text: "❄️ めちゃくちゃ上がる", points: { H: 3, C: 1 } },
+                    { text: "🔥 むしろ温まりたい", points: {} },
+                    { text: "🤔 あまり変わらない", points: {} }
+                ]
+            },
+            {
+                q: "今の状態に一番近いのは？",
+                options: [
+                    { text: "🛏️ 布団/ベッドの中にいる", points: { C: 2 } },
+                    { text: "📱 スマホ見ながらダラダラ", points: { A: 2 } },
+                    { text: "🎤 推しのコンテンツ消化中", points: { B: 2 } },
+                    { text: "🎮 ゲーム/作業中", points: { G: 2 } },
+                    { text: "💼 仕事/学校で疲れてる", points: { E: 2 } },
+                    { text: "🧘 特に何も", points: { D: 1, E: 1 } }
+                ]
+            }
         ];
 
         let currentQuestionIndex = 0;
-        let totalScore = 0;
+        let scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
 
         const tScreen = document.getElementById('top-screen');
         const qScreen = document.getElementById('question-screen');
         const rScreen = document.getElementById('result-screen');
         const qText = document.getElementById('question-text');
-        const pContainer = document.getElementById('progress-container');
         const pBar = document.getElementById('progress-bar');
         const pText = document.getElementById('progress-text');
+        const optionsContainer = document.getElementById('options-container');
 
         function startDiagnosis() {
             tScreen.classList.add('hidden');
             tScreen.classList.remove('flex');
             qScreen.classList.remove('hidden');
             qScreen.classList.add('flex');
-            pContainer.classList.remove('hidden');
             showNextQuestion();
         }
 
         function showNextQuestion() {
             if (currentQuestionIndex < questions.length) {
-                qText.innerText = questions[currentQuestionIndex];
+                const q = questions[currentQuestionIndex];
+                qText.innerText = q.q;
+
+                optionsContainer.innerHTML = '';
+                q.options.forEach((opt, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'option-btn w-full py-3 px-4 bg-white border-2 border-gray-200 text-gray-700 font-bold rounded-xl hover:border-purple-300 hover:bg-purple-50 text-sm text-left leading-snug';
+                    btn.innerText = opt.text;
+                    btn.onclick = () => answer(opt.points);
+                    optionsContainer.appendChild(btn);
+                });
+
                 const progress = ((currentQuestionIndex + 1) / questions.length) * 100;
                 pBar.style.width = `${progress}%`;
                 pText.innerText = `${currentQuestionIndex + 1}/${questions.length}`;
+
                 qScreen.classList.remove('fade-in');
                 void qScreen.offsetWidth;
                 qScreen.classList.add('fade-in');
@@ -205,17 +419,12 @@
             }
         }
 
-        function answer(score) {
-            totalScore += score;
+        function answer(points) {
+            for (const [type, score] of Object.entries(points)) {
+                scores[type] += score;
+            }
             currentQuestionIndex++;
             showNextQuestion();
-        }
-
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-        function getRandomItem(arr) {
-            return arr[Math.floor(Math.random() * arr.length)];
         }
 
         function showResult() {
@@ -223,145 +432,68 @@
             qScreen.classList.remove('flex');
             rScreen.classList.remove('hidden');
             rScreen.classList.add('flex');
-            pContainer.classList.add('hidden');
 
-            let r = {};
-            const paramLabels = ["見た目", "匂い", "社会性"];
+            // スコア合計を計算
+            const totalScore = Object.values(scores).reduce((a, b) => a + b, 0) || 1;
 
-            if (totalScore === 100) {
-                r = {
-                    rank: "✨ 光の聖女 ✨",
-                    sub: getRandomItem(["ステータス：神の領域", "ステータス：清潔感の権化", "ステータス：歩くパワースポット", "ステータス：無菌室レベル", "ステータス：全人類の憧れ"]),
-                    bubble: getRandomItem(["後光が見える？", "汚れって何？", "空気が浄化される"]),
-                    desc: "完璧です。今のあなたは無菌室レベルの清潔さを誇っています。歩くだけで周囲の空気を浄化し、すれ違う人全員が振り返るでしょう。もはや人間ではなく、光の存在に近いです。",
-                    img: "./char_80.png",
-                    color: "text-pink-500",
-                    statsVal: [100, 100, 100],
-                    tweet: "【神業】清潔度がカンストしました。今の私は歩く空気清浄機です✨"
-                };
-            } else if (totalScore >= 85) {
-                r = {
-                    rank: "👑 無敵のプリンセス 👑",
-                    sub: getRandomItem(["ステータス：高嶺の花", "ステータス：誰もが振り返る", "ステータス：清潔エリート", "ステータス：イイ女", "ステータス：フローラル"]),
-                    bubble: getRandomItem(["私、いい匂い♡", "触ってもいいよ？", "髪さらっさら"]),
-                    desc: "素晴らしい状態です。髪はサラサラ、肌はモチモチ。清潔感という武器を完全に使いこなしています。この状態をキープできれば、人生イージーモード間違いなしです。",
-                    img: "./char_80.png",
-                    color: "text-pink-400",
-                    statsVal: [95, 90, 95],
-                    tweet: "【大勝利】今の私は無敵のプリンセスです👑 全人類私を見習って。"
-                };
-            } else if (totalScore >= 70) {
-                r = {
-                    rank: "✨ 清掃委員長 ✨",
-                    sub: getRandomItem(["ステータス：優等生", "ステータス：清潔感あり", "ステータス：好感度高め", "ステータス：安心安全", "ステータス：模範的市民"]),
-                    bubble: getRandomItem(["うん、大丈夫！", "清潔第一！", "準備万端！"]),
-                    desc: "文句なしの清潔感です。誰に会っても恥ずかしくない、模範的な社会人としての身だしなみが整っています。油断せず、この調子でいきましょう。",
-                    img: "./char_80.png",
-                    color: "text-green-500",
-                    statsVal: [80, 80, 85],
-                    tweet: "【優秀】清潔感のある優等生です✨ 誰に会っても大丈夫！"
-                };
-            } else if (totalScore >= 55) {
-                r = {
-                    rank: "🤡 擬態のプロ 🤡",
-                    sub: getRandomItem(["ステータス：隠れズボラ", "ステータス：遠目なら美人", "ステータス：見せかけの清潔", "ステータス：バレてないはず", "ステータス：要警戒"]),
-                    bubble: getRandomItem(["バレてない…よね？", "香水で誤魔化そ", "まだイケる"]),
-                    desc: "見た目は人間ですが、細部を見ると怪しい箇所がチラホラ。まだ誤魔化せていますが、このままだとボロが出ます。そろそろ本気でお風呂に入らないと、擬態が解けてしまいますよ。",
-                    img: "./char_50.png",
-                    color: "text-orange-500",
-                    statsVal: [60, 50, 60],
-                    tweet: "【生存報告】見た目は人間、中身は限界。ギリギリの尊厳を保っています🫠"
-                };
-            } else if (totalScore >= 40) {
-                r = {
-                    rank: "⚠️ 黄信号 ⚠️",
-                    sub: getRandomItem(["ステータス：少し臭うかも", "ステータス：ベタつき初期", "ステータス：接近禁止令", "ステータス：不穏な空気", "ステータス：お風呂推奨"]),
-                    bubble: getRandomItem(["ちょっと痒いかも", "帽子かぶろ...", "帰りたい..."]),
-                    desc: "危険信号が点滅しています。自分では気づいていないかもしれませんが、すれ違った人が違和感を覚えるレベルです。「今日はいいや」の積み重ねが、あなたを蝕んでいます。",
-                    img: "./char_50.png",
-                    color: "text-yellow-600",
-                    statsVal: [40, 30, 40],
-                    tweet: "【微臭】ちょっとヤバいかもしれません。誰にも会わずに帰宅したいです🏠"
-                };
-            } else if (totalScore >= 25) {
-                r = {
-                    rank: "💀 入浴キャンセル界隈 💀",
-                    sub: getRandomItem(["ステータス：歩く公害予備軍", "ステータス：脂ギッシュ", "ステータス：スマホ画面ベタベタ", "ステータス：人間卒業試験", "ステータス：異臭騒ぎ"]),
-                    bubble: getRandomItem(["お風呂めんどくさ...", "動きたくない...", "スマホ友達..."]),
-                    desc: "完全にアウトです。髪は束になり、肌はテカり、独特のオーラを放っています。あなたのスマホ画面も脂で泣いています。今すぐお風呂に入らないと、社会的に抹殺されます。",
-                    img: "./char_20.png",
-                    color: "text-purple-600",
-                    statsVal: [20, 10, 15],
-                    tweet: "【悲報】お風呂キャンセル界隈の才能が開花しました🌸 髪も肌も限界です。"
-                };
-            } else if (totalScore >= 10) {
-                r = {
-                    rank: "🧟‍♀️ 歩くバイオハザード 🧟‍♀️",
-                    sub: getRandomItem(["ステータス：微生物の楽園", "ステータス：触るな危険", "ステータス：隔離対象", "ステータス：野生化", "ステータス：腐敗の始まり"]),
-                    bubble: getRandomItem(["かゆい...うま...", "ニンゲン...だめ...", "風呂...とは..."]),
-                    desc: "もはや人間としての尊厳を失いつつあります。あなたの体表では微生物たちが文明を築き始めました。生存本能が残っているなら、這ってでも浴室へ向かってください。",
-                    img: "./char_00.png",
-                    color: "text-gray-700",
-                    statsVal: [10, 5, 5],
-                    tweet: "【危険】バイオハザード発生中🧟‍♀️ 近づくと感染します。誰か私を洗って..."
-                };
-            } else {
-                r = {
-                    rank: "👿 虚無の王 👿",
-                    sub: getRandomItem(["ステータス：社会的な死", "ステータス：風呂アンチ", "ステータス：深淵の住人", "ステータス：蘇生不可能", "ステータス：伝説の不潔"]),
-                    bubble: getRandomItem(["もう動けない...", "布団と結婚した", "光が眩しい..."]),
-                    desc: "終わりです。救いようがありません。あなたは清潔という概念を捨て去り、虚無と一体化しました。異臭騒ぎで通報される前に、奇跡が起きることを祈ります。",
-                    img: "./char_00.png",
-                    color: "text-black",
-                    statsVal: [0, 0, 0],
-                    tweet: "【終了】社会的な死を迎えました😇 私はもう動けません。来世にご期待ください。"
-                };
-            }
+            // 成分%を計算してソート
+            const components = Object.entries(scores)
+                .map(([id, score]) => ({
+                    id,
+                    type: types[id],
+                    score,
+                    percent: Math.round((score / totalScore) * 100)
+                }))
+                .sort((a, b) => b.score - a.score);
 
-            document.getElementById('result-rank').innerText = r.rank;
-            document.getElementById('result-rank').className = `text-2xl md:text-3xl font-black font-pop mb-1 leading-tight tracking-tighter ${r.color}`;
-            document.getElementById('result-sub').innerText = r.sub;
-            document.getElementById('result-desc').innerText = r.desc;
-            document.getElementById('result-img').src = r.img;
-            document.getElementById('result-bubble').innerText = r.bubble;
+            // 上位3つを取得（0%は除外）
+            const top3 = components.filter(c => c.percent > 0).slice(0, 3);
 
-            const statusContainer = document.getElementById('status-list');
-            statusContainer.innerHTML = '';
-            
-            paramLabels.forEach((label, i) => {
-                let val = r.statsVal[i] + getRandomInt(-5, 5);
-                val = Math.max(0, Math.min(100, val));
+            // メインタイプ
+            const mainType = top3[0]?.type || types.E; // デフォルトは省エネ型
 
-                let barColor = "bg-gray-400";
-                if (val >= 80) barColor = "bg-pink-400";
-                else if (val >= 50) barColor = "bg-green-400";
-                else if (val >= 30) barColor = "bg-yellow-400";
-                else barColor = "bg-red-500";
+            document.getElementById('result-emoji').innerText = mainType.emoji;
+            document.getElementById('result-type').innerText = `【${mainType.name}】`;
+            document.getElementById('result-catch').innerText = mainType.catch;
 
+            // 成分バー
+            const componentList = document.getElementById('component-list');
+            componentList.innerHTML = '';
+
+            top3.forEach((comp, index) => {
                 const row = document.createElement('div');
                 row.innerHTML = `
-                    <div class="flex justify-between mb-1">
-                        <span>${label}</span>
-                        <span class="font-black">${val}%</span>
+                    <div class="flex justify-between items-center mb-1">
+                        <span class="text-sm">${comp.type.emoji} ${comp.type.name}</span>
+                        <span class="text-sm font-black text-purple-500">${comp.percent}%</span>
                     </div>
-                    <div class="w-full bg-gray-200 rounded-full h-3 relative overflow-hidden">
-                        <div class="${barColor} h-full rounded-full transition-all duration-[1500ms] ease-out relative" style="width: 0%">
-                             <div class="absolute inset-0 bg-white/30 animate-pulse"></div>
-                        </div>
+                    <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+                        <div class="component-bar h-full bg-gradient-to-r from-pink-400 to-purple-400 rounded-full" style="width: 0%"></div>
                     </div>
                 `;
-                statusContainer.appendChild(row);
+                componentList.appendChild(row);
+
+                // アニメーション
                 setTimeout(() => {
-                    row.querySelector('div.rounded-full > div').style.width = `${val}%`;
-                }, 300);
+                    row.querySelector('.component-bar').style.width = `${comp.percent}%`;
+                }, 100 + index * 200);
             });
 
-            const shareUrl = "https://diagnosis.bath-check.com/";
-            const tweetText = `${r.rank}\n${r.sub}\n\n${r.tweet}\n\n#フロハイッタ診断 #お風呂キャンセル界隈 #限界社会人`;
-            const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}&url=${encodeURIComponent(shareUrl)}`;
-            
-            document.getElementById('share-link').href = intentUrl;
+            // 相性
+            document.getElementById('compatible-type').innerText = types[mainType.compatible]?.name || '';
+            document.getElementById('enemy-type').innerText = mainType.enemy;
+
+            // 言い訳
+            const excuse = mainType.excuses[Math.floor(Math.random() * mainType.excuses.length)];
+            document.getElementById('excuse-text').innerText = `「${excuse}」`;
+
+            // シェアリンク
+            const componentText = top3.map(c => `${c.type.emoji} ${c.type.name} ${c.percent}%`).join('\n');
+            const shareText = `🛁 お風呂キャンセルタイプ診断\n\n私は【${mainType.name}】でした！\n${mainType.catch}\n\n🧬 成分\n${componentText}\n\n#お風呂キャンセルタイプ診断`;
+            const shareUrl = 'https://diagnosis.bath-check.com/';
+            document.getElementById('share-link').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
         }
     </script>
 </body>
+
 </html>
