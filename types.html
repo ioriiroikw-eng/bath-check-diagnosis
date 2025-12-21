@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="お風呂キャンセルタイプ診断の8タイプを詳しく解説！あなたはどのタイプ？">
-    <meta property="og:title" content="タイプ一覧｜お風呂キャンセルタイプ診断">
-    <meta property="og:description" content="スマホ廃人型、推し優先型、布団依存型...8タイプを徹底解説！">
-    <title>タイプ一覧｜お風呂キャンセルタイプ診断</title>
+    <meta name="description" content="肌タイプ診断の5タイプを詳しく解説！乾燥肌・普通肌・混合肌・脂性肌・敏感肌の特徴とケア方法">
+    <meta property="og:title" content="タイプ一覧｜肌タイプ診断">
+    <meta property="og:description" content="乾燥肌、普通肌、混合肌、脂性肌、敏感肌...5タイプを徹底解説！">
+    <title>タイプ一覧｜肌タイプ診断</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -30,6 +30,40 @@
         .pb-safe {
             padding-bottom: env(safe-area-inset-bottom);
         }
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 640px) {
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -39,162 +73,188 @@
         class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 flex justify-between items-center px-4 py-3 shadow-sm h-16">
         <h1
             class="text-lg font-black font-pop text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
-            <a href="index.html">フロハイッタ？</a>
+            <a href="index.html">肌タイプ診断</a>
         </h1>
         <a href="index.html"
-            class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md">
+            class="desktop-nav bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md">
             診断する
         </a>
+        <button id="hamburger-btn"
+            class="hamburger-menu items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100"
+            onclick="toggleMenu()">
+            <svg id="hamburger-icon" class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 text-gray-700 hidden" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
     </header>
+
+    <div id="menu-overlay" class="menu-overlay fixed inset-0 bg-black/50 z-40" onclick="toggleMenu()"></div>
+    <nav id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 pt-20 px-6">
+        <div class="space-y-4">
+            <a href="index.html" class="block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-purple-50">診断トップ</a>
+            <a href="types.html" class="block py-3 px-4 text-purple-600 font-bold rounded-lg bg-purple-50">タイプ一覧</a>
+            <a href="about.html"
+                class="block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-purple-50">この診断について</a>
+            <hr class="my-4 border-gray-200">
+            <a href="privacy.html"
+                class="block py-2 px-4 text-gray-500 text-sm rounded-lg hover:bg-gray-50">プライバシーポリシー</a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-500 text-sm rounded-lg hover:bg-gray-50">お問い合わせ</a>
+        </div>
+    </nav>
 
     <main class="pt-20 px-4 pb-8 max-w-2xl mx-auto">
         <h2
             class="text-2xl font-black font-pop text-center mb-2 text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500">
-            お風呂キャンセル<br>8タイプ一覧
+            肌タイプ<br>5タイプ一覧
         </h2>
         <p class="text-center text-sm text-gray-500 mb-6">あなたはどのタイプ？</p>
 
         <div class="space-y-4">
 
-            <!-- スマホ廃人型 -->
-            <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-pink-400">
-                <div class="flex items-start gap-4">
-                    <span class="text-4xl">📱</span>
-                    <div class="flex-1">
-                        <h3 class="font-black text-lg text-pink-500 font-pop">スマホ廃人型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「気づいたら2時間経ってた」</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            SNS、YouTube、TikTokが止まらない。「あと1本だけ」が無限ループ。寝落ちするまでスマホを離さない。風呂に入る前にスマホを見てしまい、気づいたら深夜になっている。
-                        </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded-full">💕 相性◎ 布団依存型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 朝シャワー勢</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 推し優先型 -->
-            <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-purple-400">
-                <div class="flex items-start gap-4">
-                    <span class="text-4xl">🎤</span>
-                    <div class="flex-1">
-                        <h3 class="font-black text-lg text-purple-500 font-pop">推し優先型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「推しのためなら何日でも」</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            推しの配信中は絶対に動けない。ライブ配信中にシャワー音は入れられない。グッズ整理やイベント準備が最優先。推しに会う日以外は清潔さへの意識が低下する。
-                        </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-full">💕 相性◎ スマホ廃人型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 現実主義者</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 布団依存型 -->
+            <!-- 乾燥肌 -->
             <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-orange-400">
                 <div class="flex items-start gap-4">
-                    <span class="text-4xl">🛏️</span>
+                    <div class="w-12 h-12 rounded-full bg-orange-100 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707">
+                            </path>
+                        </svg>
+                    </div>
                     <div class="flex-1">
-                        <h3 class="font-black text-lg text-orange-500 font-pop">布団依存型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「あと5分」のプロ</p>
+                        <h3 class="font-black text-lg text-orange-500 font-pop">乾燥肌</h3>
+                        <p class="text-sm text-gray-500 mb-2">水分も皮脂も不足しがちなデリケート肌</p>
                         <p class="text-sm text-gray-600 leading-relaxed">
-                            一度布団に入ったら最後、二度と出られない。「あと5分」が永遠に続く。布団の温もりは何物にも代えがたい。冬は特に症状が悪化する傾向がある。
+                            肌全体がつっぱりやすく、特に洗顔後や冬場に乾燥を感じやすいタイプ。キメが細かいですが、小じわができやすく、粉吹きやかゆみが起こることも。保湿ケアが最重要です。
                         </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded-full">💕 相性◎ スマホ廃人型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 早起き勢</span>
+                        <div class="mt-3 bg-orange-50 rounded-lg p-3">
+                            <p class="text-xs font-bold text-orange-600 mb-1">おすすめケア</p>
+                            <p class="text-xs text-gray-600">高保湿化粧水・乳液、セラミド・ヒアルロン酸配合アイテム</p>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full text-xs">セラミド</span>
+                            <span class="bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full text-xs">ヒアルロン酸</span>
+                            <span class="bg-orange-100 text-orange-600 px-2 py-0.5 rounded-full text-xs">スクワラン</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 明日やる型 -->
-            <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-yellow-400">
-                <div class="flex items-start gap-4">
-                    <span class="text-4xl">⏰</span>
-                    <div class="flex-1">
-                        <h3 class="font-black text-lg text-yellow-600 font-pop">明日やる型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「明日の自分、よろしく」</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            明日の自分への信頼が厚すぎる。「明日早起きして入ればいい」が口癖。しかし明日もまた同じことを言う。未来の自分に全てを託し続ける楽観主義者。
-                        </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full">💕 相性◎ 省エネ型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 計画的な人</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 省エネ型 -->
-            <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-gray-400">
-                <div class="flex items-start gap-4">
-                    <span class="text-4xl">😴</span>
-                    <div class="flex-1">
-                        <h3 class="font-black text-lg text-gray-600 font-pop">省エネ型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「最小限の労力で生きたい」</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            そもそも動くこと自体が面倒。効率を追求した結果、動かないことが最適解に。エネルギー消費を最小限に抑えることに情熱を注ぐ。省エネは地球にやさしい。
-                        </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-gray-200 text-gray-600 px-2 py-1 rounded-full">💕 相性◎ 明日やる型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 意識高い系</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- 完璧主義型 -->
-            <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-teal-400">
-                <div class="flex items-start gap-4">
-                    <span class="text-4xl">🧴</span>
-                    <div class="flex-1">
-                        <h3 class="font-black text-lg text-teal-500 font-pop">完璧主義型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「中途半端が嫌い」</p>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            入るなら2時間コース。シャンプー、トリートメント、ボディケア、スキンケア...全てを完璧にやりたい。だからこそ、その気力がない日は入れない。妥協ができない性格。
-                        </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-teal-100 text-teal-600 px-2 py-1 rounded-full">💕 相性◎ ゲーマー型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 適当な人</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ゲーマー型 -->
+            <!-- 普通肌 -->
             <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-green-400">
                 <div class="flex items-start gap-4">
-                    <span class="text-4xl">🎮</span>
+                    <div class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
                     <div class="flex-1">
-                        <h3 class="font-black text-lg text-green-500 font-pop">ゲーマー型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「あと1ステージだけ」</p>
+                        <h3 class="font-black text-lg text-green-500 font-pop">普通肌</h3>
+                        <p class="text-sm text-gray-500 mb-2">水分と皮脂のバランスが取れた理想的な肌</p>
                         <p class="text-sm text-gray-600 leading-relaxed">
-                            キリがいいところが永遠に来ない。「あと1マッチ」「セーブポイントまで」が無限に続く。マッチング待ち中は抜けられない。気づいたら朝になっている。
+                            肌のキメが整っており、ベタつきも乾燥も感じにくい理想的な肌状態。毛穴も目立ちにくく、肌トラブルが起きにくいタイプ。季節の変わり目や体調によって変化することもあります。
                         </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full">💕 相性◎ 完璧主義型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 ゲームしない人</span>
+                        <div class="mt-3 bg-green-50 rounded-lg p-3">
+                            <p class="text-xs font-bold text-green-600 mb-1">おすすめケア</p>
+                            <p class="text-xs text-gray-600">現状維持のバランスケア、紫外線対策、季節に合わせた調整</p>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="bg-green-100 text-green-600 px-2 py-0.5 rounded-full text-xs">ビタミンC</span>
+                            <span class="bg-green-100 text-green-600 px-2 py-0.5 rounded-full text-xs">ナイアシンアミド</span>
+                            <span class="bg-green-100 text-green-600 px-2 py-0.5 rounded-full text-xs">コラーゲン</span>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 季節限定型 -->
+            <!-- 混合肌 -->
+            <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-purple-400">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-purple-100 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-black text-lg text-purple-500 font-pop">混合肌</h3>
+                        <p class="text-sm text-gray-500 mb-2">パーツによって異なるケアが必要な肌</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Tゾーン（額・鼻）はテカりやすく毛穴が目立つ一方、頬や目元は乾燥しがちな複合タイプ。日本人に最も多い肌タイプと言われています。部位ごとに違うケアが必要です。
+                        </p>
+                        <div class="mt-3 bg-purple-50 rounded-lg p-3">
+                            <p class="text-xs font-bold text-purple-600 mb-1">おすすめケア</p>
+                            <p class="text-xs text-gray-600">Tゾーンはさっぱり、頬はしっとりのパーツ別ケア</p>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full text-xs">ライスパワー</span>
+                            <span class="bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full text-xs">セラミド</span>
+                            <span class="bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full text-xs">ビタミンC</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 脂性肌 -->
             <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-blue-400">
                 <div class="flex items-start gap-4">
-                    <span class="text-4xl">❄️</span>
+                    <div class="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z">
+                            </path>
+                        </svg>
+                    </div>
                     <div class="flex-1">
-                        <h3 class="font-black text-lg text-blue-500 font-pop">季節限定型</h3>
-                        <p class="text-sm text-gray-500 mb-2">「寒いと全てが無理」</p>
+                        <h3 class="font-black text-lg text-blue-500 font-pop">脂性肌</h3>
+                        <p class="text-sm text-gray-500 mb-2">皮脂分泌が活発なツヤ肌タイプ</p>
                         <p class="text-sm text-gray-600 leading-relaxed">
-                            冬になると風呂のハードルが急上昇。脱衣所が寒すぎて脱げない。「春になったら本気出す」が決まり文句。夏は比較的まとも。季節に左右される体質。
+                            肌全体に皮脂が多く、特にTゾーンがテカりやすいタイプ。毛穴が開きやすく、ニキビや黒ずみができやすい傾向。ただし、乾燥しにくくシワができにくいというメリットも。
                         </p>
-                        <div class="mt-3 flex flex-wrap gap-2 text-xs">
-                            <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full">💕 相性◎ 布団依存型</span>
-                            <span class="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">⚔️ 天敵 寒さに強い人</span>
+                        <div class="mt-3 bg-blue-50 rounded-lg p-3">
+                            <p class="text-xs font-bold text-blue-600 mb-1">おすすめケア</p>
+                            <p class="text-xs text-gray-600">優しい洗顔、さっぱり化粧水、オイルフリーアイテム</p>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-xs">ナイアシンアミド</span>
+                            <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-xs">サリチル酸</span>
+                            <span class="bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full text-xs">AHA/BHA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 敏感肌 -->
+            <div class="bg-white rounded-2xl p-5 shadow-lg border-l-4 border-pink-400">
+                <div class="flex items-start gap-4">
+                    <div class="w-12 h-12 rounded-full bg-pink-100 flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="font-black text-lg text-pink-500 font-pop">敏感肌</h3>
+                        <p class="text-sm text-gray-500 mb-2">外部刺激に反応しやすい繊細な肌</p>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            化粧品や環境の変化に敏感で、赤みやかゆみ、ピリピリ感が出やすいタイプ。肌のバリア機能が弱く、季節の変わり目や体調の変化で肌荒れしやすい傾向があります。
+                        </p>
+                        <div class="mt-3 bg-pink-50 rounded-lg p-3">
+                            <p class="text-xs font-bold text-pink-600 mb-1">おすすめケア</p>
+                            <p class="text-xs text-gray-600">無添加・低刺激処方、パッチテスト必須、優しいケア</p>
+                        </div>
+                        <div class="mt-2 flex flex-wrap gap-1">
+                            <span class="bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full text-xs">セラミド</span>
+                            <span class="bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full text-xs">シカ</span>
+                            <span class="bg-pink-100 text-pink-600 px-2 py-0.5 rounded-full text-xs">アラントイン</span>
                         </div>
                     </div>
                 </div>
@@ -205,15 +265,37 @@
         <div class="mt-8 text-center">
             <a href="index.html"
                 class="inline-block py-3 px-8 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full shadow-lg">
-                🛁 診断してみる
+                診断してみる
             </a>
         </div>
 
-        <div class="mt-6 text-center">
-            <a href="about.html" class="text-sm text-gray-500 underline">この診断について</a>
-        </div>
+        <!-- フッター -->
+        <footer class="mt-8 text-center text-xs text-gray-400 space-y-2">
+            <div class="flex justify-center gap-4">
+                <a href="about.html" class="hover:text-purple-500 transition">この診断について</a>
+                <a href="index.html" class="hover:text-purple-500 transition">診断トップ</a>
+            </div>
+            <div class="flex justify-center gap-4">
+                <a href="privacy.html" class="hover:text-purple-500 transition">プライバシーポリシー</a>
+                <a href="contact.html" class="hover:text-purple-500 transition">お問い合わせ</a>
+            </div>
+            <p class="text-gray-300 mt-2">© 2024 肌タイプ診断</p>
+        </footer>
     </main>
 
+    <script>
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+            mobileMenu.classList.toggle('open');
+            menuOverlay.classList.toggle('open');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        }
+    </script>
 </body>
 
 </html>

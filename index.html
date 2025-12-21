@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <meta name="description" content="あなたがお風呂に入らない理由は？8タイプから診断！ #お風呂キャンセルタイプ診断">
-    <meta property="og:title" content="お風呂キャンセルタイプ診断｜フロハイッタ？">
-    <meta property="og:description" content="あなたがお風呂に入らない本当の理由を診断します。">
+    <meta name="description" content="あなたの肌タイプを診断！乾燥肌・普通肌・混合肌・脂性肌・敏感肌の5タイプから正確に判定 #肌タイプ診断">
+    <meta property="og:title" content="肌タイプ診断｜あなたの肌質をチェック">
+    <meta property="og:description" content="8つの質問であなたの肌タイプを正確に診断します。">
     <meta property="og:image" content="https://diagnosis.bath-check.com/icon.png">
     <meta name="twitter:card" content="summary">
-    <title>お風呂キャンセルタイプ診断｜フロハイッタ？</title>
+    <title>肌タイプ診断｜あなたの肌質をチェック</title>
 
     <script>(function (w, d, s, l, i) {
             w[l] = w[l] || []; w[l].push({
@@ -31,8 +31,8 @@
     {
         "@context": "https://schema.org",
         "@type": "WebSite",
-        "name": "フロハイッタ？",
-        "alternateName": ["お風呂キャンセルタイプ診断"],
+        "name": "肌タイプ診断",
+        "alternateName": ["スキンタイプ診断", "肌質チェック"],
         "url": "https://diagnosis.bath-check.com/"
     }
     </script>
@@ -84,6 +84,41 @@
         .component-bar {
             transition: width 1s ease-out;
         }
+
+        /* ハンバーガーメニュー */
+        .hamburger-menu {
+            display: none;
+        }
+
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media (max-width: 640px) {
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+        }
     </style>
 </head>
 
@@ -96,13 +131,58 @@
         class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md z-50 flex justify-between items-center px-4 py-3 shadow-sm h-16">
         <h1
             class="text-lg md:text-xl font-black font-pop text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 tracking-tight">
-            <a href="index.html">フロハイッタ？</a>
+            <a href="index.html">肌タイプ診断</a>
         </h1>
-        <a href="https://app.bath-check.com/"
-            class="bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition">
-            アプリを開く
+
+        <!-- デスクトップナビ -->
+        <a href="types.html"
+            class="desktop-nav bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold text-sm px-4 py-2 rounded-full shadow-md hover:shadow-lg transition">
+            タイプ一覧
         </a>
+
+        <!-- ハンバーガーメニューボタン -->
+        <button id="hamburger-btn"
+            class="hamburger-menu items-center justify-center w-10 h-10 rounded-lg hover:bg-gray-100 transition"
+            onclick="toggleMenu()">
+            <svg id="hamburger-icon" class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                </path>
+            </svg>
+            <svg id="close-icon" class="w-6 h-6 text-gray-700 hidden" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
     </header>
+
+    <!-- モバイルメニューオーバーレイ -->
+    <div id="menu-overlay" class="menu-overlay fixed inset-0 bg-black/50 z-40" onclick="toggleMenu()"></div>
+
+    <!-- モバイルメニュー -->
+    <nav id="mobile-menu" class="mobile-menu fixed top-0 right-0 h-full w-64 bg-white shadow-2xl z-50 pt-20 px-6">
+        <div class="space-y-4">
+            <a href="index.html"
+                class="block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-purple-50 transition">
+                診断トップ
+            </a>
+            <a href="types.html"
+                class="block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-purple-50 transition">
+                タイプ一覧
+            </a>
+            <a href="about.html"
+                class="block py-3 px-4 text-gray-700 font-bold rounded-lg hover:bg-purple-50 transition">
+                この診断について
+            </a>
+            <hr class="my-4 border-gray-200">
+            <a href="privacy.html" class="block py-2 px-4 text-gray-500 text-sm rounded-lg hover:bg-gray-50 transition">
+                プライバシーポリシー
+            </a>
+            <a href="contact.html" class="block py-2 px-4 text-gray-500 text-sm rounded-lg hover:bg-gray-50 transition">
+                お問い合わせ
+            </a>
+        </div>
+    </nav>
 
     <div id="app"
         class="bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl w-full max-w-md overflow-hidden border-4 border-white relative flex flex-col mb-8">
@@ -110,31 +190,38 @@
         <!-- トップ画面 -->
         <div id="top-screen" class="p-6 text-center flex-col items-center justify-center fade-in flex py-10">
             <div class="mb-4">
-                <span class="text-6xl">🛁</span>
+                <div
+                    class="w-20 h-20 rounded-full bg-gradient-to-br from-pink-100 to-purple-100 flex items-center justify-center mx-auto">
+                    <svg class="w-10 h-10 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </div>
             </div>
             <h2 class="text-xl font-black font-pop mb-2 leading-tight">
-                お風呂キャンセル<br>
+                あなたの肌タイプは？<br>
                 <span
-                    class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 text-2xl">タイプ診断</span>
+                    class="text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 text-2xl">肌質診断</span>
             </h2>
             <p class="text-sm font-medium text-gray-600 mb-6 leading-relaxed">
-                あなたがお風呂に入らない<br>本当の理由を診断します
+                8つの質問に答えて<br>あなたの肌タイプを診断します
             </p>
 
             <div class="flex flex-wrap justify-center gap-2 mb-6 text-xs">
-                <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded-full">📱 スマホ廃人型</span>
-                <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-full">🎤 推し優先型</span>
-                <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded-full">🛏️ 布団依存型</span>
-                <span class="bg-yellow-100 text-yellow-600 px-2 py-1 rounded-full">⏰ 明日やる型</span>
+                <span class="bg-orange-100 text-orange-600 px-2 py-1 rounded-full">乾燥肌</span>
+                <span class="bg-green-100 text-green-600 px-2 py-1 rounded-full">普通肌</span>
+                <span class="bg-purple-100 text-purple-600 px-2 py-1 rounded-full">混合肌</span>
+                <span class="bg-blue-100 text-blue-600 px-2 py-1 rounded-full">脂性肌</span>
+                <span class="bg-pink-100 text-pink-600 px-2 py-1 rounded-full">敏感肌</span>
             </div>
 
             <button onclick="startDiagnosis()"
                 class="w-full py-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-black rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition text-lg relative overflow-hidden group">
                 <span
                     class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></span>
-                <span class="relative">診断する（6問）</span>
+                <span class="relative">診断スタート（8問）</span>
             </button>
-            <p class="text-xs text-gray-400 mt-3">※ 約30秒で完了</p>
+            <p class="text-xs text-gray-400 mt-3">※ 約1分で完了</p>
 
             <div class="flex justify-center gap-4 mt-4 text-xs">
                 <a href="types.html" class="text-purple-500 underline font-bold">タイプ一覧</a>
@@ -147,11 +234,11 @@
             <div id="progress-container" class="mb-6">
                 <div class="flex justify-between text-xs font-bold text-gray-400 mb-1">
                     <span>QUESTION</span>
-                    <span id="progress-text">1/6</span>
+                    <span id="progress-text">1/8</span>
                 </div>
                 <div class="h-2 bg-gray-100 rounded-full overflow-hidden">
                     <div id="progress-bar" class="progress-bar h-full bg-gradient-to-r from-pink-400 to-purple-400"
-                        style="width: 16.6%"></div>
+                        style="width: 12.5%"></div>
                 </div>
             </div>
 
@@ -165,44 +252,42 @@
         <div id="result-screen" class="hidden p-6 text-center flex-col items-center fade-in overflow-y-auto pb-safe">
             <div class="w-full max-w-sm mx-auto">
 
-                <p class="text-xs font-black text-purple-400 mb-4 tracking-widest font-pop">🧪 診断結果</p>
+                <p class="text-xs font-black text-purple-400 mb-4 tracking-widest font-pop">診断結果</p>
 
                 <!-- メインタイプ -->
                 <div
                     class="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-5 mb-4 border-2 border-purple-100">
-                    <span id="result-emoji" class="text-5xl mb-2 block"></span>
-                    <p class="text-xs text-gray-500 mb-1">あなたは</p>
+                    <div id="result-icon" class="w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center">
+                    </div>
+                    <p class="text-xs text-gray-500 mb-1">あなたの肌タイプは</p>
                     <h3 id="result-type"
                         class="text-xl font-black font-pop text-transparent bg-clip-text bg-gradient-to-r from-pink-500 to-purple-500 mb-2">
                     </h3>
                     <p id="result-catch" class="text-sm text-gray-600 font-bold"></p>
                 </div>
 
+                <!-- 肌の特徴 -->
+                <div class="bg-white rounded-2xl p-4 mb-4 border-2 border-gray-100 text-left">
+                    <p class="text-xs font-black text-gray-400 mb-3 tracking-wider">あなたの肌の特徴</p>
+                    <p id="result-features" class="text-sm text-gray-600 leading-relaxed"></p>
+                </div>
+
                 <!-- 成分表示 -->
                 <div class="bg-white rounded-2xl p-4 mb-4 border-2 border-gray-100 text-left">
-                    <p class="text-xs font-black text-gray-400 mb-3 tracking-wider">🧬 あなたの成分</p>
+                    <p class="text-xs font-black text-gray-400 mb-3 tracking-wider">肌タイプ成分</p>
                     <div id="component-list" class="space-y-3"></div>
                 </div>
 
-                <!-- 相性 -->
-                <div class="bg-white rounded-2xl p-4 mb-4 border-2 border-gray-100 text-left">
-                    <div class="flex justify-between items-center text-sm">
-                        <div>
-                            <span class="text-gray-400">💕 相性◎</span>
-                            <span id="compatible-type" class="font-bold text-pink-500 ml-1"></span>
-                        </div>
-                        <div>
-                            <span class="text-gray-400">⚔️ 天敵</span>
-                            <span id="enemy-type" class="font-bold text-gray-600 ml-1"></span>
-                        </div>
-                    </div>
+                <!-- スキンケアアドバイス -->
+                <div class="bg-gradient-to-br from-green-50 to-teal-50 rounded-2xl p-4 mb-5 border-2 border-green-200">
+                    <p class="text-xs font-black text-green-600 mb-2 tracking-wider">スキンケアアドバイス</p>
+                    <p id="advice-text" class="text-sm font-bold text-gray-700 leading-relaxed"></p>
                 </div>
 
-                <!-- 言い訳 -->
-                <div
-                    class="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-2xl p-4 mb-5 border-2 border-yellow-200">
-                    <p class="text-xs font-black text-yellow-600 mb-2 tracking-wider">📜 今日の言い訳</p>
-                    <p id="excuse-text" class="text-sm font-bold text-gray-700 leading-relaxed"></p>
+                <!-- おすすめ成分 -->
+                <div class="bg-white rounded-2xl p-4 mb-4 border-2 border-gray-100 text-left">
+                    <p class="text-xs font-black text-gray-400 mb-3 tracking-wider">おすすめ成分</p>
+                    <div id="recommended-ingredients" class="flex flex-wrap gap-2"></div>
                 </div>
 
                 <!-- ボタン -->
@@ -219,12 +304,12 @@
 
                     <button onclick="location.reload()"
                         class="w-full py-3 bg-gray-100 text-gray-600 font-bold rounded-full hover:bg-gray-200 transition">
-                        🔄 もう一度診断
+                        もう一度診断
                     </button>
 
-                    <a href="https://app.bath-check.com/"
+                    <a href="types.html"
                         class="block w-full py-3 bg-gradient-to-r from-pink-500 to-purple-500 text-white font-bold rounded-full shadow-lg hover:shadow-xl transition flex items-center justify-center gap-2">
-                        📱 アプリで毎日チェック
+                        全タイプを見る
                     </a>
                 </div>
             </div>
@@ -232,150 +317,155 @@
 
     </div>
 
+    <!-- フッター -->
+    <footer class="w-full max-w-md text-center text-xs text-gray-400 space-y-2 mb-4">
+        <div class="flex justify-center gap-4">
+            <a href="about.html" class="hover:text-purple-500 transition">この診断について</a>
+            <a href="types.html" class="hover:text-purple-500 transition">タイプ一覧</a>
+        </div>
+        <div class="flex justify-center gap-4">
+            <a href="privacy.html" class="hover:text-purple-500 transition">プライバシーポリシー</a>
+            <a href="contact.html" class="hover:text-purple-500 transition">お問い合わせ</a>
+        </div>
+        <p class="text-gray-300 mt-2">© 2024 肌タイプ診断</p>
+    </footer>
+
     <script>
-        // 8タイプの定義
+        // 5つの肌タイプの定義
         const types = {
-            A: {
-                id: 'A', emoji: '📱', name: 'スマホ廃人型',
-                catch: '「気づいたら2時間経ってた」',
-                compatible: 'C', enemy: '朝シャワー勢',
-                excuses: [
-                    'スマホの充電が先。人間の充電は後でいい',
-                    'TikTok見てたら時間が溶けた。仕方ない',
-                    'YouTubeの自動再生が悪い。私は悪くない'
-                ]
+            dry: {
+                id: 'dry',
+                name: '乾燥肌',
+                color: 'orange',
+                shortDesc: 'カサカサしやすい',
+                catch: '水分も皮脂も不足しがちなデリケート肌',
+                features: '肌全体がつっぱりやすく、特に洗顔後や冬場に乾燥を感じやすいタイプです。キメが細かいですが、小じわができやすく、粉吹きやかゆみが起こることも。肌のバリア機能が低下しやすいため、保湿ケアが最重要です。',
+                advice: '高保湿タイプの化粧水・乳液を使い、セラミドやヒアルロン酸配合のアイテムがおすすめ。洗顔は優しく、熱いお湯は避けましょう。',
+                ingredients: ['セラミド', 'ヒアルロン酸', 'スクワラン', 'シアバター', 'アミノ酸']
             },
-            B: {
-                id: 'B', emoji: '🎤', name: '推し優先型',
-                catch: '「推しのためなら何日でも」',
-                compatible: 'A', enemy: '現実主義者',
-                excuses: [
-                    '推しの配信中に風呂は入れない。常識',
-                    '推しに会う日じゃないから大丈夫',
-                    '推しも今頃お風呂入ってないかもしれない'
-                ]
+            normal: {
+                id: 'normal',
+                name: '普通肌',
+                color: 'green',
+                shortDesc: 'バランスが良い',
+                catch: '水分と皮脂のバランスが取れた理想的な肌',
+                features: '肌のキメが整っており、ベタつきも乾燥も感じにくい理想的な肌状態です。毛穴も目立ちにくく、肌トラブルが起きにくいタイプ。季節の変わり目や体調によって変化することもあるので、日々の観察が大切。',
+                advice: '現状のケアを継続しつつ、紫外線対策と保湿をバランス良く。季節に合わせてケアを微調整しましょう。',
+                ingredients: ['ビタミンC誘導体', 'ナイアシンアミド', 'コラーゲン', 'プラセンタ', 'ペプチド']
             },
-            C: {
-                id: 'C', emoji: '🛏️', name: '布団依存型',
-                catch: '「あと5分」のプロ',
-                compatible: 'A', enemy: '早起き勢',
-                excuses: [
-                    '布団から出た瞬間に体力が尽きた',
-                    '布団と約束したから。破れない',
-                    '寒すぎて布団から出たら死ぬ'
-                ]
+            combination: {
+                id: 'combination',
+                name: '混合肌',
+                color: 'purple',
+                shortDesc: 'Tゾーンはベタつき',
+                catch: 'パーツによって異なるケアが必要な肌',
+                features: 'Tゾーン（額・鼻）はテカりやすく毛穴が目立つ一方、頬や目元は乾燥しがちな複合タイプです。日本人に最も多い肌タイプと言われています。部位ごとに違うケアが必要なため、スキンケアの工夫が大切。',
+                advice: 'Tゾーンはさっぱり、頬や目元はしっとりとパーツ別ケアを。皮脂を取りすぎない優しい洗顔と、部分的な保湿がポイント。',
+                ingredients: ['ライスパワーNo.6', 'ビタミンC', 'セラミド', 'サリチル酸', 'ハマメリス']
             },
-            D: {
-                id: 'D', emoji: '⏰', name: '明日やる型',
-                catch: '「明日の自分、よろしく」',
-                compatible: 'E', enemy: '計画的な人',
-                excuses: [
-                    '明日の朝入れば朝イチで清潔になれる',
-                    '明日の自分は今日より優秀なはず',
-                    '明日2回入ればチャラ'
-                ]
+            oily: {
+                id: 'oily',
+                name: '脂性肌',
+                color: 'blue',
+                shortDesc: 'テカリやすい',
+                catch: '皮脂分泌が活発なツヤ肌タイプ',
+                features: '肌全体に皮脂が多く、特にTゾーンがテカりやすいタイプです。毛穴が開きやすく、ニキビや黒ずみができやすい傾向。ただし、皮脂膜があるため乾燥しにくく、シワができにくいというメリットも。',
+                advice: '皮脂を落としすぎない優しい洗顔を心がけ、さっぱりタイプの化粧水で水分補給を。オイルフリーのアイテムがおすすめ。',
+                ingredients: ['ビタミンC誘導体', 'ナイアシンアミド', 'サリチル酸', 'グリシルグリシン', 'AHA/BHA']
             },
-            E: {
-                id: 'E', emoji: '😴', name: '省エネ型',
-                catch: '「最小限の労力で生きたい」',
-                compatible: 'D', enemy: '意識高い系',
-                excuses: [
-                    '動くのがそもそも無理',
-                    '省エネは地球にやさしい',
-                    '疲れすぎて浴室で寝落ちしそう'
-                ]
-            },
-            F: {
-                id: 'F', emoji: '🧴', name: '完璧主義型',
-                catch: '「中途半端が嫌い」',
-                compatible: 'G', enemy: '適当な人',
-                excuses: [
-                    '入るなら2時間コース。その気力がない',
-                    'スキンケアまでやる元気がない',
-                    '完璧にできないなら明日にする'
-                ]
-            },
-            G: {
-                id: 'G', emoji: '🎮', name: 'ゲーマー型',
-                catch: '「あと1ステージだけ」',
-                compatible: 'F', enemy: 'ゲームしない人',
-                excuses: [
-                    'キリがいいところが永遠に来ない',
-                    'マッチング待ちで抜けられない',
-                    'セーブポイントまであと少し（嘘）'
-                ]
-            },
-            H: {
-                id: 'H', emoji: '❄️', name: '季節限定型',
-                catch: '「寒いと全てが無理」',
-                compatible: 'C', enemy: '寒さに強い人',
-                excuses: [
-                    '冬は週3でいいって誰かが言ってた',
-                    '寒すぎて脱ぐのが無理',
-                    '春になったら本気出す'
-                ]
+            sensitive: {
+                id: 'sensitive',
+                name: '敏感肌',
+                color: 'pink',
+                shortDesc: '刺激に弱い',
+                catch: '外部刺激に反応しやすい繊細な肌',
+                features: '化粧品や環境の変化に敏感で、赤みやかゆみ、ピリピリ感が出やすいタイプです。肌のバリア機能が弱く、季節の変わり目や体調の変化で肌荒れしやすい傾向。低刺激なスキンケアと生活習慣の見直しが大切。',
+                advice: '無添加・低刺激処方のスキンケアを選び、新しい化粧品はパッチテストを。肌をこすらず、優しくケアしましょう。',
+                ingredients: ['セラミド', 'アラントイン', 'パンテノール', 'シカ（ツボクサエキス）', 'カモミール']
             }
         };
 
-        // 質問データ
+        // 8問の診断質問（絵文字を削減）
         const questions = [
             {
-                q: "お風呂に入ろうと思った瞬間、スマホに通知が来た。どうする？",
+                q: "洗顔後、何もつけずに10分放置すると肌はどうなりますか？",
                 options: [
-                    { text: "📱 とりあえず見る。風呂は後で", points: { A: 3 } },
-                    { text: "🔕 無視して風呂へ", points: {} },
-                    { text: "🤔 内容による", points: { A: 1 } }
+                    { text: "全体的につっぱり、カサカサする", points: { dry: 3, sensitive: 1 } },
+                    { text: "特に変化なし、快適", points: { normal: 3 } },
+                    { text: "Tゾーンだけ少しテカる、頬は乾く", points: { combination: 3 } },
+                    { text: "顔全体がテカってくる", points: { oily: 3 } }
                 ]
             },
             {
-                q: "「明日早起きして入ればいいや」と思う頻度は？",
+                q: "Tゾーン（額・鼻）の状態は？",
                 options: [
-                    { text: "⏰ ほぼ毎日思ってる", points: { D: 3 } },
-                    { text: "🤔 週に2-3回", points: { D: 2 } },
-                    { text: "🚿 あまり思わない", points: {} }
+                    { text: "乾燥している・カサつく", points: { dry: 3, sensitive: 1 } },
+                    { text: "特に気にならない", points: { normal: 2 } },
+                    { text: "テカりやすい・毛穴が目立つ", points: { combination: 2, oily: 2 } },
+                    { text: "常にベタつく・すぐテカる", points: { oily: 3 } }
                 ]
             },
             {
-                q: "一番風呂をサボりがちな理由は？",
+                q: "頬の肌状態はどうですか？",
                 options: [
-                    { text: "📱 スマホ/SNS/動画", points: { A: 2 } },
-                    { text: "🎤 推し活（配信/ライブなど）", points: { B: 3 } },
-                    { text: "🛏️ 布団が気持ちよすぎる", points: { C: 3 } },
-                    { text: "😴 単純にめんどくさい", points: { E: 3 } },
-                    { text: "🎮 ゲームがやめられない", points: { G: 3 } }
+                    { text: "乾燥してカサカサ・粉をふく", points: { dry: 3 } },
+                    { text: "しっとり・トラブルなし", points: { normal: 3 } },
+                    { text: "乾燥気味だがTゾーンほどではない", points: { combination: 3 } },
+                    { text: "テカりやすい・べたつく", points: { oily: 2 } },
+                    { text: "赤みやピリつきがある", points: { sensitive: 3 } }
                 ]
             },
             {
-                q: "お風呂に入るとき、どんな感じ？",
+                q: "毛穴の状態は？",
                 options: [
-                    { text: "🧴 入るなら長風呂派（30分以上）", points: { F: 3 } },
-                    { text: "⚡ サッと済ませたい（10分以内）", points: { E: 1 } },
-                    { text: "🤷 その日による", points: {} }
+                    { text: "毛穴は目立たない・キメが細かい", points: { dry: 2, normal: 2, sensitive: 1 } },
+                    { text: "鼻周りだけ毛穴が気になる", points: { combination: 3 } },
+                    { text: "顔全体で毛穴が開いている", points: { oily: 3 } },
+                    { text: "黒ずみや角栓が目立つ", points: { oily: 2, combination: 1 } }
                 ]
             },
             {
-                q: "冬になると風呂のハードルは...",
+                q: "新しい化粧品を使ったとき、肌はどう反応しますか？",
                 options: [
-                    { text: "❄️ めちゃくちゃ上がる", points: { H: 3, C: 1 } },
-                    { text: "🔥 むしろ温まりたい", points: {} },
-                    { text: "🤔 あまり変わらない", points: {} }
+                    { text: "特に問題なく使える", points: { normal: 2, oily: 1 } },
+                    { text: "たまにピリピリすることがある", points: { sensitive: 2, dry: 1 } },
+                    { text: "赤みやかゆみが出やすい", points: { sensitive: 3 } },
+                    { text: "ニキビや肌荒れを起こしやすい", points: { sensitive: 2, oily: 1 } }
                 ]
             },
             {
-                q: "今の状態に一番近いのは？",
+                q: "季節によって肌の状態は変わりますか？",
                 options: [
-                    { text: "🛏️ 布団/ベッドの中にいる", points: { C: 2 } },
-                    { text: "📱 スマホ見ながらダラダラ", points: { A: 2 } },
-                    { text: "🎤 推しのコンテンツ消化中", points: { B: 2 } },
-                    { text: "🎮 ゲーム/作業中", points: { G: 2 } },
-                    { text: "💼 仕事/学校で疲れてる", points: { E: 2 } },
-                    { text: "🧘 特に何も", points: { D: 1, E: 1 } }
+                    { text: "冬は特に乾燥がひどくなる", points: { dry: 3, sensitive: 1 } },
+                    { text: "夏はテカリがひどくなる", points: { oily: 2, combination: 1 } },
+                    { text: "季節ごとに肌質が大きく変わる", points: { combination: 2, sensitive: 2 } },
+                    { text: "あまり変わらない", points: { normal: 3 } }
+                ]
+            },
+            {
+                q: "日中のメイク崩れはどんな感じ？",
+                options: [
+                    { text: "乾燥でメイクがひび割れる・粉っぽくなる", points: { dry: 3 } },
+                    { text: "ほとんど崩れない", points: { normal: 3 } },
+                    { text: "Tゾーンだけ崩れる・テカる", points: { combination: 3 } },
+                    { text: "顔全体がテカってドロドロになる", points: { oily: 3 } },
+                    { text: "赤みが出てムラになる", points: { sensitive: 2 } }
+                ]
+            },
+            {
+                q: "最近、肌で気になることは？",
+                options: [
+                    { text: "乾燥・かさつき・小じわ", points: { dry: 3 } },
+                    { text: "特にない・調子がいい", points: { normal: 3 } },
+                    { text: "部分的な乾燥とテカリ", points: { combination: 3 } },
+                    { text: "テカリ・毛穴・ニキビ", points: { oily: 3 } },
+                    { text: "赤み・かゆみ・ピリピリ感", points: { sensitive: 3 } }
                 ]
             }
         ];
 
         let currentQuestionIndex = 0;
-        let scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0, G: 0, H: 0 };
+        let scores = { dry: 0, normal: 0, combination: 0, oily: 0, sensitive: 0 };
 
         const tScreen = document.getElementById('top-screen');
         const qScreen = document.getElementById('question-screen');
@@ -450,11 +540,52 @@
             const top3 = components.filter(c => c.percent > 0).slice(0, 3);
 
             // メインタイプ
-            const mainType = top3[0]?.type || types.E; // デフォルトは省エネ型
+            const mainType = top3[0]?.type || types.normal;
 
-            document.getElementById('result-emoji').innerText = mainType.emoji;
+            // 肌タイプごとのアイコンSVG
+            const iconMap = {
+                dry: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707"></path>
+                </svg>`,
+                normal: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>`,
+                combination: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>`,
+                oily: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                </svg>`,
+                sensitive: `<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                </svg>`
+            };
+
+            // アイコンを色で表現
+            const colorMap = {
+                orange: 'bg-orange-100 text-orange-500',
+                green: 'bg-green-100 text-green-500',
+                purple: 'bg-purple-100 text-purple-500',
+                blue: 'bg-blue-100 text-blue-500',
+                pink: 'bg-pink-100 text-pink-500'
+            };
+            document.getElementById('result-icon').className = `w-16 h-16 rounded-full mx-auto mb-3 flex items-center justify-center ${colorMap[mainType.color]}`;
+            document.getElementById('result-icon').innerHTML = iconMap[mainType.id];
+
             document.getElementById('result-type').innerText = `【${mainType.name}】`;
             document.getElementById('result-catch').innerText = mainType.catch;
+            document.getElementById('result-features').innerText = mainType.features;
+            document.getElementById('advice-text').innerText = mainType.advice;
+
+            // おすすめ成分
+            const ingredientsContainer = document.getElementById('recommended-ingredients');
+            ingredientsContainer.innerHTML = '';
+            mainType.ingredients.forEach(ing => {
+                const span = document.createElement('span');
+                span.className = 'bg-green-100 text-green-700 px-3 py-1 rounded-full text-xs font-bold';
+                span.innerText = ing;
+                ingredientsContainer.appendChild(span);
+            });
 
             // 成分バー
             const componentList = document.getElementById('component-list');
@@ -464,7 +595,7 @@
                 const row = document.createElement('div');
                 row.innerHTML = `
                     <div class="flex justify-between items-center mb-1">
-                        <span class="text-sm">${comp.type.emoji} ${comp.type.name}</span>
+                        <span class="text-sm">${comp.type.name}</span>
                         <span class="text-sm font-black text-purple-500">${comp.percent}%</span>
                     </div>
                     <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
@@ -479,19 +610,31 @@
                 }, 100 + index * 200);
             });
 
-            // 相性
-            document.getElementById('compatible-type').innerText = types[mainType.compatible]?.name || '';
-            document.getElementById('enemy-type').innerText = mainType.enemy;
-
-            // 言い訳
-            const excuse = mainType.excuses[Math.floor(Math.random() * mainType.excuses.length)];
-            document.getElementById('excuse-text').innerText = `「${excuse}」`;
-
             // シェアリンク
-            const componentText = top3.map(c => `${c.type.emoji} ${c.type.name} ${c.percent}%`).join('\n');
-            const shareText = `🛁 お風呂キャンセルタイプ診断\n\n私は【${mainType.name}】でした！\n${mainType.catch}\n\n🧬 成分\n${componentText}\n\n#お風呂キャンセルタイプ診断`;
+            const componentText = top3.map(c => `${c.type.name} ${c.percent}%`).join('\n');
+            const shareText = `肌タイプ診断\n\n私の肌タイプは【${mainType.name}】でした！\n${mainType.catch}\n\n肌タイプ成分\n${componentText}\n\n#肌タイプ診断`;
             const shareUrl = 'https://diagnosis.bath-check.com/';
             document.getElementById('share-link').href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`;
+        }
+
+        // ハンバーガーメニュートグル
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuOverlay = document.getElementById('menu-overlay');
+            const hamburgerIcon = document.getElementById('hamburger-icon');
+            const closeIcon = document.getElementById('close-icon');
+
+            mobileMenu.classList.toggle('open');
+            menuOverlay.classList.toggle('open');
+            hamburgerIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+
+            // bodyのスクロール制御
+            if (mobileMenu.classList.contains('open')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
         }
     </script>
 </body>
